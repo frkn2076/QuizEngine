@@ -17,4 +17,4 @@ Use these instructions to get the project up and running.
 
 ### Optional
 
-* You can use [this collection](https://git.toptal.com/screening/Furkan-Ozturk/-/blob/master/Quiz.Engine.postman_collection.json) on postman about testing APIs 
+* You can use [this collection](https://github.com/frkn2076/QuizEngine/blob/develop/Quiz.Engine.postman_collection.json) on postman about testing APIs 
