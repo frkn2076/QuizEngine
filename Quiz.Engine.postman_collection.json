@@ -1,0 +1,565 @@
+{
+  "info": {
+    "_postman_id": "f4fdaa1d-5b01-4f53-8169-8b1f5b0c2623",
+    "name": "Quiz.Engine",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "5292677"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"user1@gmail.com\",\r\n  \"password\": \"12345\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/authentication/register",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "authentication",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SignIn",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"frkn@gmail.com\",\r\n  \"password\": \"12345\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/authentication/signin",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "authentication",
+            "signin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Refresh token",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiZjUwZmE1YzgtMGYwOC00Y2ZmLWIyYTItMjYwZDAyZWQ4YTZhIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvYXV0aG9yaXphdGlvbmRlY2lzaW9uIjoiUmVmcmVzaFRva2VuIiwibmJmIjoxNjU4ODYzMjMyLCJleHAiOjE2NTkwNzkyMzIsImlhdCI6MTY1ODg2MzIzMn0.DhKd-IPWcUiK5irEwbcmWEMltc8RQz7bs2uxwABedEM",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"furkan@gmail.com\",\r\n  \"password\": \"12345\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/authentication/refresh",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "authentication",
+            "refresh"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create quiz",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiZDBhNGU2YWYtYjQ2NS00NDRkLWEyNjgtMWRiNTJlOTUxM2QyIiwibmJmIjoxNjU4ODY3Nzc5LCJleHAiOjE2NTg4NzEzNzksImlhdCI6MTY1ODg2Nzc3OX0.Ta3Fy6KaBNl9f6YsauWVrb8DydL0xytvkh7rZ3wujZ4",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"new-title\",\r\n  \"ispublished\": true,\r\n  \"questions\": [\r\n      {\r\n          \"question\": \"new-question\",\r\n          \"answers\": [\r\n              {\r\n                  \"answer\": \"new-answer1\",\r\n                  \"iscorrectanswer\": true\r\n              },\r\n              {\r\n                  \"answer\": \"new-answer2\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"new-answer3\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"new-answer4\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"new-answer5\",\r\n                  \"iscorrectanswer\": false\r\n              }\r\n          ]\r\n      },\r\n      {\r\n          \"question\": \"new-question2\",\r\n          \"answers\": [\r\n              {\r\n                  \"answer\": \"new-answer1\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"new-answer2\",\r\n                  \"iscorrectanswer\": true\r\n              },\r\n              {\r\n                  \"answer\": \"new-answer3\",\r\n                  \"iscorrectanswer\": true\r\n              },\r\n              {\r\n                  \"answer\": \"new-answer4\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"new-answer5\",\r\n                  \"iscorrectanswer\": true\r\n              }\r\n          ]\r\n      }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/quiz",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "quiz"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get quiz",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiN2E2NzZmNjAtZTczNy00MDIyLWI4YzgtZGZhZDY0MDI2NzNkIiwibmJmIjoxNjU4Nzg3NDAzLCJleHAiOjE2NTk2NTE0MDIsImlhdCI6MTY1ODc4NzQwM30.iWY6IIkM-o0RB3TJJIn4OyVmFj8AhjIjQES_dVrS2As",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/quiz/?quizid=c1476963-fd60-46d6-a0f8-de902bc0e84e",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "quiz",
+            ""
+          ],
+          "query": [
+            {
+              "key": "quizid",
+              "value": "c1476963-fd60-46d6-a0f8-de902bc0e84e"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update quiz",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiZjUwZmE1YzgtMGYwOC00Y2ZmLWIyYTItMjYwZDAyZWQ4YTZhIiwibmJmIjoxNjU4ODYzMzM2LCJleHAiOjE2NTg4NjY5MzYsImlhdCI6MTY1ODg2MzMzNn0.6oQU-llaEi-k9uGqiEfsCqd_kCRNcwDzeeX51lVTUc4",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"updated-title1\",\r\n  \"ispublished\": false,\r\n  \"questions\": [\r\n      {\r\n          \"question\": \"update-question1\",\r\n          \"answers\": [\r\n              {\r\n                  \"answer\": \"updated-answer1\",\r\n                  \"iscorrectanswer\": true\r\n              },\r\n              {\r\n                  \"answer\": \"updated-answer2\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"updated-answer3\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"updated-answer4\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"updated-answer5\",\r\n                  \"iscorrectanswer\": false\r\n              }\r\n          ]\r\n      },\r\n      {\r\n          \"question\": \"update-question2\",\r\n          \"answers\": [\r\n              {\r\n                  \"answer\": \"updated-answer1\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"updated-answer2\",\r\n                  \"iscorrectanswer\": true\r\n              },\r\n              {\r\n                  \"answer\": \"updated-answer3\",\r\n                  \"iscorrectanswer\": true\r\n              },\r\n              {\r\n                  \"answer\": \"updated-answer4\",\r\n                  \"iscorrectanswer\": false\r\n              },\r\n              {\r\n                  \"answer\": \"updated-answer5\",\r\n                  \"iscorrectanswer\": true\r\n              }\r\n          ]\r\n      }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/quiz/?quizid=d057ec03-7006-41e9-a673-42934504caa4",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "quiz",
+            ""
+          ],
+          "query": [
+            {
+              "key": "quizid",
+              "value": "d057ec03-7006-41e9-a673-42934504caa4"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete quiz",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiZjUwZmE1YzgtMGYwOC00Y2ZmLWIyYTItMjYwZDAyZWQ4YTZhIiwibmJmIjoxNjU4ODY3Nzk4LCJleHAiOjE2NTg4NzEzOTgsImlhdCI6MTY1ODg2Nzc5OH0.7KFHJ7rMb44Y-9dnJ2xhVnwdA3pzbHDJXr90kVQE02Y",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/quiz/?quizid=7eee14b7-c42d-48da-b013-62cd94ae783f",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "quiz",
+            ""
+          ],
+          "query": [
+            {
+              "key": "quizid",
+              "value": "7eee14b7-c42d-48da-b013-62cd94ae783f"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Solve quiz",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiYjI4YmY2YzktNWVjNC00MGQ0LWI5NzItM2ViMjQ5YjIzYjYwIiwibmJmIjoxNjU4ODY3ODQ4LCJleHAiOjE2NTg4NzE0NDgsImlhdCI6MTY1ODg2Nzg0OH0.eVSZiUyD8Z0A1ldVnVVccK5ITQZCQgSWuB6-nKeu2wM",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": \"b920d0bb-f638-40dd-808b-281956a8d7b0\",\r\n    \"questions\": [\r\n        {\r\n            \"id\": \"796b4b64-cc4a-46b5-b992-bad9705df65e\",\r\n            \"answers\": [\r\n                \"8c1fb7ef-2be0-485d-bbd9-653bf60936c9\"\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"1046c85d-3cb5-4412-a0fb-9984b64bc696\",\r\n            \"answers\": [\r\n                \"270f2c29-062d-4496-8409-427a07b9d06f\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/quiz/solve",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "quiz",
+            "solve"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get other users quizzes",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiZjUwZmE1YzgtMGYwOC00Y2ZmLWIyYTItMjYwZDAyZWQ4YTZhIiwibmJmIjoxNjU4ODY3Nzk4LCJleHAiOjE2NTg4NzEzOTgsImlhdCI6MTY1ODg2Nzc5OH0.7KFHJ7rMb44Y-9dnJ2xhVnwdA3pzbHDJXr90kVQE02Y",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/quiz/all",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "quiz",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get users quizzes",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiZjUwZmE1YzgtMGYwOC00Y2ZmLWIyYTItMjYwZDAyZWQ4YTZhIiwibmJmIjoxNjU4ODczODY5LCJleHAiOjE2NTg4Nzc0NjksImlhdCI6MTY1ODg3Mzg2OX0.HX5UXrcKhy5nZHOWaOQn5-tVckvSesT56Sp9_jfnYjA",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/quiz/user/all",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "quiz",
+            "user",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get solutions of user",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiYjI4YmY2YzktNWVjNC00MGQ0LWI5NzItM2ViMjQ5YjIzYjYwIiwibmJmIjoxNjU4ODY3ODQ4LCJleHAiOjE2NTg4NzE0NDgsImlhdCI6MTY1ODg2Nzg0OH0.eVSZiUyD8Z0A1ldVnVVccK5ITQZCQgSWuB6-nKeu2wM",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/quiz/user/solutions",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "quiz",
+            "user",
+            "solutions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get solutions of quiz",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjZXJ0c2VyaWFsbnVtYmVyIjoiZjUwZmE1YzgtMGYwOC00Y2ZmLWIyYTItMjYwZDAyZWQ4YTZhIiwibmJmIjoxNjU4ODY4MDEyLCJleHAiOjE2NTg4NzE2MTIsImlhdCI6MTY1ODg2ODAxMn0.DR9Oe5bfdHHQ6LF8ukAyREC6cliaGExm9yn3usmuYAU",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "{{{{jwt_token}}}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7054/quiz/solutions?quizid=b920d0bb-f638-40dd-808b-281956a8d7b0",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7054",
+          "path": [
+            "quiz",
+            "solutions"
+          ],
+          "query": [
+            {
+              "key": "quizid",
+              "value": "b920d0bb-f638-40dd-808b-281956a8d7b0"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
